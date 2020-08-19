@@ -1,0 +1,66 @@
+{
+    "server":{
+        "port":3000,
+        "host":"0.0.0.0"
+    },
+    "whitelist":[
+        "10.10.10.1",
+        "10.10.10.2"
+    ],
+    "logs":{
+        "err_log":"错误日志路径",
+        "query_log":"查询日志路径",
+        "safety_log":"安全日志路径"
+    },
+    "tmp":{
+        "zabbix_tmp":"zabbix临时文件路径,用来和zabbix通讯状态"
+    },
+    "pgsql":{
+        "r":[
+            {
+                "state":true,
+                "pg":null,
+                "request": 0,
+                "info":{
+                    "user": "用户名",
+                    "database": "数据库表",
+                    "password": "连接密码",
+                    "host": "数据库ip",
+                    "port": "数据库端口"
+                }
+            }
+        ],
+        "w":[
+            {
+                "state":true,
+                "pg":null,
+                "request": 0,
+                "info":{
+                    "user": "用户名",
+                    "database": "数据库表",
+                    "password": "连接密码",
+                    "host": "数据库ip",
+                    "port": "数据库端口"
+                }
+            }
+        ],
+        "rw":[
+            {
+                "state":true,
+                "pg":null,
+                "request": 0,
+                "info":{
+                    "user": "用户名",
+                    "database": "数据库表",
+                    "password": "连接密码",
+                    "host": "数据库ip",
+                    "port": "数据库端口"
+                }
+            }
+        ]
+    },
+    "sgin":"令牌",
+    "sql_intercept":[
+            "sql校验,用正则"
+    ]
+}
