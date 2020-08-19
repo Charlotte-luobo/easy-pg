@@ -8,7 +8,6 @@ var http = require('http');
 var querystring = require('querystring');
 var pg = require('pg');
 var fs = require('fs');
-var util = require('util');
 var info = require('../conf/config.json');
 
 /**获得时间 */
@@ -250,7 +249,7 @@ http.createServer(function (req, res) {
                 info.pgsql[body.type][pgPool.key].request = info.pgsql[body.type][pgPool.key].request + 1;
                 /** 设置响应头部信息及编码*/
                 res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
-                res.write(util.inspect({state:true,pool:pgPool.key,type:body.type,data:data}));
+                res.write(JSON.stringify({state:true,pool:pgPool.key,type:body.type,data:data}));
                 res.end();
                 return false
             },(err) => {
