@@ -177,3 +177,63 @@ easy_pg state         状态
 easy_pg list          各线程信息
 easy_pg help          帮助
 ```
+## 压力测试
+```
+ab -c10000 -n100000 -p post.txt -T "application/x-www-form-urlencoded" http://10.10.10.20:3000/
+This is ApacheBench, Version 2.3 <$Revision: 1874286 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 10.10.10.20 (be patient)
+Completed 10000 requests
+Completed 20000 requests
+Completed 30000 requests
+Completed 40000 requests
+Completed 50000 requests
+Completed 60000 requests
+Completed 70000 requests
+Completed 80000 requests
+Completed 90000 requests
+Completed 100000 requests
+Finished 100000 requests
+
+
+Server Software:        
+Server Hostname:        10.10.10.20
+Server Port:            3000
+
+Document Path:          /
+Document Length:        88 bytes
+
+Concurrency Level:      10000
+Time taken for tests:   45.664 seconds
+Complete requests:      100000
+Failed requests:        0
+Total transferred:      20400000 bytes
+Total body sent:        25300000
+HTML transferred:       8800000 bytes
+Requests per second:    2189.89 [#/sec] (mean)
+Time per request:       4566.438 [ms] (mean)
+Time per request:       0.457 [ms] (mean, across all concurrent requests)
+Transfer rate:          436.27 [Kbytes/sec] received
+                        541.06 kb/s sent
+                        977.32 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0  139 1701.3      0   32594
+Processing:   113  593 209.2    567    1214
+Waiting:       19  584 210.1    559    1198
+Total:        113  732 1724.6    572   33778
+
+Percentage of the requests served within a certain time (ms)
+  50%    572
+  66%    666
+  75%    752
+  80%    845
+  90%    930
+  95%    970
+  98%   1026
+  99%   1993
+ 100%  33778 (longest request)
+```
